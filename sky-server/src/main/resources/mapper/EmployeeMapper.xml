@@ -24,7 +24,7 @@
                         id_Number = #{idNumber},
                     </if>
                     <if test="updateTime!= null">
-                        update_TIme = #{updateTime},
+                        update_Time = #{updateTime},
                     </if>
                     <if test="updateUser!= null">
                         update_User = #{updateUser},

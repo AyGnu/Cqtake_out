@@ -2,6 +2,7 @@ package com.sky.controller.admin;
 
 import com.sky.dto.CategoryDTO;
 import com.sky.dto.CategoryPageQueryDTO;
+import com.sky.dto.DishDTO;
 import com.sky.entity.Category;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
@@ -65,4 +66,6 @@ public class CategoryController {
       categoryService.update(categoryDTO);
         return Result.success();
     }
+
+
 }

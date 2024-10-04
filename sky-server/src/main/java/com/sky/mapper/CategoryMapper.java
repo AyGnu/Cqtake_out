@@ -26,4 +26,7 @@ public interface CategoryMapper {
     void deleteById(Integer id);
 
     void update(Category category);
+
+    @Select("select name from category where id=#{categoryID}")
+    String getById(Long categoryId);
 }

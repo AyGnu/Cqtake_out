@@ -103,6 +103,5 @@ public class CategoryServiceImpl implements CategoryService {
         category.setUpdateTime(LocalDateTime.now());
         category.setUpdateUser(BaseContext.getCurrentId());
         categoryMapper.update(category);
-
     }
 }
