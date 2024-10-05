@@ -46,9 +46,9 @@ public class CategoryController {
         PageResult  pageResult= categoryService.pageCategory(categoryPageQueryDTO);
         return Result.success(pageResult);
     }
-    @DeleteMapping({"/{id}"})
+    @DeleteMapping
     @ApiOperation("根据ID删除")
-    public Result deleteById(@PathVariable Integer id){
+    public Result deleteById(@RequestParam Integer id){
         categoryService.deleteById(id);
         return Result.success();
     }

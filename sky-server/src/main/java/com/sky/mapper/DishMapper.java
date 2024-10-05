@@ -11,6 +11,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 @Mapper
 public interface DishMapper {
 
@@ -42,4 +44,7 @@ public interface DishMapper {
 
     @Update("update dish set status=#{status} where id=#{id}")
     void startOrStopStatus(Integer status, Long id);
+
+    @Select("select * from dish where category_id=#{id}")
+    List<Dish> list(Integer id);
 }

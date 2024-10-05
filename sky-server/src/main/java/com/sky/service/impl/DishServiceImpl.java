@@ -16,6 +16,7 @@ import com.sky.mapper.SetmealDishMapper;
 import com.sky.result.PageResult;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -155,5 +156,11 @@ public class DishServiceImpl implements DishService {
     public void startOrStopStatus(Integer status, Long id) {
         dishMapper.startOrStopStatus(status,id);
 
+    }
+
+    @Override
+    public List<Dish> list(Integer id) {
+       List<Dish> dishes =  dishMapper.list(id);
+       return dishes;
     }
 }
