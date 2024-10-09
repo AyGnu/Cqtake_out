@@ -48,7 +48,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> findByType(Integer type) {
 //        log.info("查找",type);
-        List<Category> category  =  categoryMapper.findByType(type);
+        CategoryPageQueryDTO category1 = new CategoryPageQueryDTO();
+        category1.setType(type);
+
+
+        List<Category> category  =  categoryMapper.pageQuery(category1);
         return category;
     }
 

@@ -22,4 +22,12 @@ public interface DishService {
     void startOrStopStatus(Integer status, Long id);
 
     List<Dish> list(Integer id);
+
+
+    /**
+     * 条件查询菜品和口味
+     * @param dish
+     * @return
+     */
+    List<DishVO> listWithFlavor(Dish dish);
 }

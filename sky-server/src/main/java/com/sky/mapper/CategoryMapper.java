@@ -17,7 +17,7 @@ public interface CategoryMapper {
             "(#{id},#{type},#{name},#{sort},#{status},#{createTime},#{updateTime},#{createUser},#{updateUser})")
     void addCategory(Category category);
 
-    @Select("select * from category where type =#{type}")
+    @Select("select * from category where type =#{type} ")
     List<Category> findByType(Integer type);
 
     Page<Category> pageQuery(CategoryPageQueryDTO categoryPageQueryDTO);

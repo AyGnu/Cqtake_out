@@ -34,7 +34,10 @@
         <where>
             <if test = "name !=null and name !=''">
                 and name like concat('%',#{name},'%')
-        </if>
+            </if>
+            <if test = "type !=null and type !=''">
+                and type like concat('%',#{type},'%')
+            </if>
         </where>
         order by create_time desc
     </select>
