@@ -24,7 +24,6 @@ import java.util.List;
 @RequestMapping("/admin/category")
 public class CategoryController {
     @Autowired
-
     public CategoryService categoryService;
 
     @PostMapping
