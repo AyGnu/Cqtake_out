@@ -15,4 +15,10 @@ public interface UserMapper {
 
     @Select("select * from user where openid = #{openid}")
     User wxLogin(String openid);
+
+    @Select("select user.name from user where id=#{userId}")
+    String findByUserId(Long userId);
+
+
+
 }
