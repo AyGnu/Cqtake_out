@@ -20,5 +20,6 @@ public interface UserMapper {
     String findByUserId(Long userId);
 
 
-
+    @Select("select * from  user where id=#{userId}")
+    User getbyId(Long userId);
 }
