@@ -76,5 +76,48 @@
     <select id="findByStatus" resultType="java.lang.Integer">
         select count(*) from orders where status=#{status}
     </select>
+    <select id="sumByMap" resultType="java.lang.Double">
+        select sum(orders.amount) from orders
+        <where>
+            <if test="begin !=null">
+                and order_time &gt; #{begin}
+            </if>
+        <if test="end !=null">
+            and order_time &lt; #{end}
+        </if>
+        <if test="status!=null">
+            and status = #{status}
+        </if>
+        </where>
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer">
+        select count(id) from orders
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="begin != null">
+                and order_time &gt;= #{begin}
+            </if>
+            <if test="end != null">
+                and order_time &lt;= #{end}
+            </if>
+        </where>
+    </select>
+    <select id="getSalesTop10" resultType="com.sky.dto.GoodsSalesDTO">
+        /*统计销量排名一定是订单状态已完成，所以直接写死不需要通过参数传进来*/
+        select od.name name,sum(od.number) number from order_detail od ,orders o
+        where od.order_id = o.id
+        and o.status = 5
+        <if test="beginTime != null">
+            and order_time &gt;= #{beginTime}
+        </if>
+        <if test="endTime != null">
+            and order_time &lt;= #{endTime}
+        </if>
+        group by name
+        order by number desc
+        limit 0, 10
+    </select>
 
 </mapper>
